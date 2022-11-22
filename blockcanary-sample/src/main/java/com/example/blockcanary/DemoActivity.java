@@ -15,13 +15,16 @@
  */
 package com.example.blockcanary;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class DemoActivity extends AppCompatActivity {
 
@@ -41,6 +44,21 @@ public class DemoActivity extends AppCompatActivity {
                 showTipDialog();
             }
         });
+
+
+        if (!NotifyUtils.isNotifyPermissionOpen(this)) {
+            new android.app.AlertDialog.Builder(this)
+                    .setCancelable(false)
+                    .setMessage("通知权限未打开，是否前去打开？")
+                    .setPositiveButton("是", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface d, int w) {
+                            NotifyUtils.openNotifyPermissionSetting(DemoActivity.this);
+                        }
+                    })
+                    .setNegativeButton("否", null)
+                    .show();
+        }
     }
 
     private void showTipDialog() {

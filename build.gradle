@@ -1,24 +1,14 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    repositories {
-        mavenCentral()
-        jcenter()
-    }
+    apply from: './versions.gradle'
+    addRepos(repositories) //增加代码仓库
+
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.2'
+        classpath deps.android_gradle_plugin
     }
 }
 
 allprojects {
-    repositories {
-        mavenCentral()
-        jcenter()
-    }
-    ext {
-        LIBRARY_COMPILE_SDK_VERSION = 23
-        LIBRARY_BUILD_TOOLS_VERSION = "23.0.3"
-        LIBRARY_MIN_SDK_VERSION = 9
-        LIBRARY_TARGET_SDK_VERSION = 22
-    }
+    addRepos(repositories)
 }

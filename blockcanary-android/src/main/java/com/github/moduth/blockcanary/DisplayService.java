@@ -17,10 +17,12 @@ package com.github.moduth.blockcanary;
 
 import android.annotation.TargetApi;
 import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.util.Log;
 
 import com.github.moduth.blockcanary.internal.BlockInfo;
@@ -37,6 +39,9 @@ import static android.os.Build.VERSION_CODES.JELLY_BEAN;
 final class DisplayService implements BlockInterceptor {
 
     private static final String TAG = "DisplayService";
+
+    private static final String CHANNEL_ID = "block_canary_channel_id";
+    private static final CharSequence CHANNEL_NAME = "block_canary_channel_name";
 
     @Override
     public void onBlock(Context context, BlockInfo blockInfo) {
@@ -79,6 +84,12 @@ final class DisplayService implements BlockInterceptor {
                     .setDefaults(Notification.DEFAULT_SOUND);
             if (SDK_INT < JELLY_BEAN) {
                 notification = builder.getNotification();
+            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                NotificationChannel channel = new NotificationChannel(CHANNEL_ID, CHANNEL_NAME, NotificationManager.IMPORTANCE_HIGH);
+                channel.enableVibration(false);
+                channel.enableLights(false);
+                notificationManager.createNotificationChannel(channel);
+                notification = builder.build();
             } else {
                 notification = builder.build();
             }

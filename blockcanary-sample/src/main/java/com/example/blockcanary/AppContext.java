@@ -23,6 +23,7 @@ import com.github.moduth.blockcanary.BlockCanaryContext;
 
 import java.util.List;
 
+
 public class AppContext extends BlockCanaryContext {
     private static final String TAG = "AppContext";
 
@@ -56,12 +57,13 @@ public class AppContext extends BlockCanaryContext {
 
     @Override
     public int provideBlockThreshold() {
-        return 500;
+        return 1000;
     }
 
     @Override
     public boolean displayNotification() {
-        return BuildConfig.DEBUG;
+//        return BuildConfig.DEBUG;
+        return true;
     }
 
     @Override

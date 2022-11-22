@@ -1,26 +1,7 @@
-apply plugin: 'com.android.library'
-apply from: 'gradle-mvn-push.gradle'
-
-android {
-    compileSdkVersion LIBRARY_COMPILE_SDK_VERSION
-    buildToolsVersion LIBRARY_BUILD_TOOLS_VERSION
-
-    defaultConfig {
-        minSdkVersion LIBRARY_MIN_SDK_VERSION
-        targetSdkVersion LIBRARY_TARGET_SDK_VERSION
-        versionCode 1
-        versionName "1.0"
-    }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-}
+apply from: "$rootDir/gradle/lib.gradle"
+apply from: "$rootDir/gradle/publish.gradle"
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-//    compile project(':blockcanary-analyzer')
-    compile 'com.github.markzhai:blockcanary-analyzer:1.5.0'
+    api project(':blockcanary-analyzer')
+//    implementation 'com.github.markzhai:blockcanary-analyzer:1.5.0'
 }
