@@ -24,6 +24,10 @@ dependencies {
 }
 ```
 
+```java
+BlockCanary.install(this, new BlockCanaryContext()).start();
+```
+
 PS: 由于该库使用了 `getMainLooper().setMessageLogging()`, 请确认是否与你的app冲突.
 
 # 使用方法

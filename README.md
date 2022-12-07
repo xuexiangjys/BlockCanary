@@ -16,6 +16,10 @@ dependencies {
 }
 ```
 
+```java
+BlockCanary.install(this, new BlockCanaryContext()).start();
+```
+
 As this library uses `getMainLooper().setMessageLogging()`, please check if you set it in your app (related issue https://github.com/moduth/blockcanary/issues/27)
 
 # Usage
