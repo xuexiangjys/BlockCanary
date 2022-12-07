@@ -18,8 +18,11 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    debugImplementation project(':blockcanary-android')
-    releaseImplementation project(':blockcanary-android-no-op')
+//    debugImplementation project(':blockcanary-android')
+//    releaseImplementation project(':blockcanary-android-no-op')
+
+    debugImplementation 'com.github.xuexiangjys.BlockCanary:blockcanary-android:1.0.0'
+    releaseImplementation 'com.github.xuexiangjys.BlockCanary:blockcanary-no-op:1.0.0'
 
     implementation deps.androidx.appcompat
     implementation deps.androidx.design

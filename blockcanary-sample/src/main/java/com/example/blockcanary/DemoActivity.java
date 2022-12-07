@@ -15,7 +15,6 @@
  */
 package com.example.blockcanary;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -44,21 +43,6 @@ public class DemoActivity extends AppCompatActivity {
                 showTipDialog();
             }
         });
-
-
-        if (!NotifyUtils.isNotifyPermissionOpen(this)) {
-            new android.app.AlertDialog.Builder(this)
-                    .setCancelable(false)
-                    .setMessage("通知权限未打开，是否前去打开？")
-                    .setPositiveButton("是", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface d, int w) {
-                            NotifyUtils.openNotifyPermissionSetting(DemoActivity.this);
-                        }
-                    })
-                    .setNegativeButton("否", null)
-                    .show();
-        }
     }
 
     private void showTipDialog() {
