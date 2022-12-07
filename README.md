@@ -1,6 +1,6 @@
-[Chinese README](https://github.com/markzhai/AndroidPerformanceMonitor/blob/master/README_CN.md)
+[Chinese README](./README_CN.md)
 
-# Android Performance Monitor [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.markzhai/blockcanary-android/badge.svg?style=flat)](https://maven-badges.herokuapp.com/maven-central/com.github.markzhai/blockcanary-android)
+# BlockCanary [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.markzhai/blockcanary-android/badge.svg?style=flat)](https://maven-badges.herokuapp.com/maven-central/com.github.markzhai/blockcanary-android)
 A transparent ui-block detection library for Android, app only needs one-line-code to setup.
 
 The naming is to pay respect to the great library [LeakCanary](https://github.com/square/leakcanary), ui-related codes are modified from leakcanary's ui part.
